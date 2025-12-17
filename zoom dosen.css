@@ -1,0 +1,169 @@
+/* =========================
+   RESET & BASE
+========================= */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: #f8fafc;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* =========================
+   HEADER
+========================= */
+.header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.header h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #166534;
+  margin-bottom: 15px;
+}
+
+.divider {
+  width: 80px;
+  height: 4px;
+  background: #34d399;
+  margin: 0 auto 20px;
+}
+
+.header p {
+  color: #4b5563;
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* =========================
+   GRID
+========================= */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 15px;
+  overflow: visible; /* penting untuk efek zoom */
+}
+
+/* =========================
+   CARD
+========================= */
+.card {
+  background: linear-gradient(135deg, #f0fdf4 0%, #86efac 100%);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1),
+              0 4px 6px -2px rgba(0,0,0,0.05);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  will-change: transform;
+}
+
+/* ZOOM 7% SAAT HOVER */
+@media (hover: hover) {
+  .card:hover {
+    transform: scale(1.07);
+    box-shadow: 0 20px 30px rgba(0,0,0,0.18);
+    z-index: 2;
+  }
+}
+
+.card-body {
+  padding: 25px;
+  text-align: center;
+}
+
+/* =========================
+   FOTO
+========================= */
+.foto-wrapper {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  overflow: hidden;
+  border: 4px solid #ffffff;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+}
+
+.foto-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+/* OPTIONAL: foto ikut zoom halus */
+@media (hover: hover) {
+  .card:hover .foto-wrapper img {
+    transform: scale(1.07);
+  }
+}
+
+/* =========================
+   TEXT
+========================= */
+.card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #166534;
+  margin-bottom: 8px;
+}
+
+.role {
+  color: #15803d;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+/* =========================
+   BUTTON
+========================= */
+.btn {
+  display: inline-block;
+  padding: 8px 24px;
+  background-color: #16a34a;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #15803d;
+  transform: translateY(-2px);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Matikan zoom di HP */
+  .card,
+  .card:hover {
+    transform: none;
+  }
+}
